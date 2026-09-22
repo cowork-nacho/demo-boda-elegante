@@ -62,6 +62,7 @@ tailwind.config = {
   .reveal { opacity: 0; transform: translateY(28px); }
 
   .header-scrolled { background-color: rgba(250, 246, 239, 0.96); box-shadow: 0 1px 0 rgba(37,54,38,0.08), 0 8px 24px -12px rgba(42,37,33,0.15); }
+  body.menu-open #header-cta { display: none; }
 
   #site-header .monogram, #site-header nav a { color: #FAF6EF; text-shadow: 0 1px 6px rgba(42,37,33,0.35); transition: color 300ms ease-out, text-shadow 300ms ease-out; }
   #site-header .menu-bar { background-color: #FAF6EF; box-shadow: 0 1px 4px rgba(42,37,33,0.35); transition: background-color 300ms ease-out, box-shadow 300ms ease-out; }
@@ -136,7 +137,7 @@ tailwind.config = {
       </nav>
 
       <div class="flex items-center gap-4">
-        <a href="#rsvp" class="btn-gold hidden sm:inline-flex items-center bg-gold text-ink text-[13px] tracking-wide-lg uppercase px-6 py-3 rounded-sm">Confirmar asistencia</a>
+        <a href="#rsvp" id="header-cta" class="btn-gold hidden sm:inline-flex items-center bg-gold text-ink text-[13px] tracking-wide-lg uppercase px-6 py-3 rounded-sm">Confirmar asistencia</a>
         <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" class="xl:hidden flex flex-col justify-center items-center w-11 h-11 -mr-2 gap-[5px]">
           <span id="bar1" class="menu-bar block w-6 h-[1.5px] transition-transform duration-300"></span>
           <span id="bar2" class="menu-bar block w-6 h-[1.5px] transition-opacity duration-300"></span>
@@ -686,6 +687,9 @@ tailwind.config = {
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     document.documentElement.style.overflow = open ? 'hidden' : '';
+    document.body.classList.toggle('menu-open', open);
+    if (open) header.classList.add('header-scrolled');
+    else updateHeader();
     if (open) {
       bar1.style.transform = 'translateY(6.5px) rotate(45deg)';
       bar2.style.opacity = '0';
