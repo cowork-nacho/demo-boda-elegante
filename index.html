@@ -52,6 +52,11 @@ tailwind.config = {
   html { scroll-behavior: smooth; }
   body { background-color: #FAF6EF; }
 
+  /* Hardcoded (not Tailwind-JIT-dependent) so the hero is always full-height on first paint, before the CDN script compiles utility classes. */
+  #inicio { position: relative; min-height: 100vh; width: 100%; overflow: hidden; }
+  #inicio img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  @supports (height: 100svh) { #inicio { min-height: 100svh; } }
+
   section[id] { scroll-margin-top: 88px; }
   @media (min-width: 768px) { section[id] { scroll-margin-top: 96px; } }
 
