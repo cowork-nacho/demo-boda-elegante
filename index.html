@@ -148,8 +148,8 @@ tailwind.config = {
 </header>
 
 <!-- ============ MOBILE MENU ============ -->
-<div id="mobile-menu" data-open="false" aria-hidden="true" class="mobile-menu fixed inset-0 z-40 bg-ivory xl:hidden">
-  <nav class="h-full flex flex-col items-center justify-center gap-8 font-display text-3xl text-bottle">
+<div id="mobile-menu" data-open="false" aria-hidden="true" class="mobile-menu fixed inset-0 z-40 bg-ivory xl:hidden overflow-y-auto">
+  <nav class="min-h-full flex flex-col items-center justify-center gap-5 sm:gap-8 font-display text-2xl sm:text-3xl text-bottle py-24 px-6">
     <a href="#inicio" class="mobile-menu-link">Inicio</a>
     <a href="#historia" class="mobile-menu-link">Nuestra historia</a>
     <a href="#boda" class="mobile-menu-link">La boda</a>
@@ -665,9 +665,13 @@ tailwind.config = {
 (function () {
   "use strict";
 
+  /* ---------- Mobile menu state (declared early so updateHeader can see it) ---------- */
+  var menuOpen = false;
+
   /* ---------- Header scroll state ---------- */
   var header = document.getElementById('site-header');
   function updateHeader() {
+    if (menuOpen) return;
     if (window.scrollY > 40) header.classList.add('header-scrolled');
     else header.classList.remove('header-scrolled');
   }
@@ -678,7 +682,6 @@ tailwind.config = {
   var menuToggle = document.getElementById('menu-toggle');
   var mobileMenu = document.getElementById('mobile-menu');
   var bar1 = document.getElementById('bar1'), bar2 = document.getElementById('bar2'), bar3 = document.getElementById('bar3');
-  var menuOpen = false;
 
   function setMenu(open) {
     menuOpen = open;
