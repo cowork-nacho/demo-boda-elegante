@@ -102,9 +102,8 @@ tailwind.config = {
 
   #lightbox { transition: opacity 220ms ease-out; }
 
-  .mobile-menu { transition: opacity 280ms ease-out, visibility 280ms ease-out; }
-  .mobile-menu[data-open="false"] { opacity: 0; visibility: hidden; }
-  .mobile-menu[data-open="true"] { opacity: 1; visibility: visible; }
+  .mobile-menu { opacity: 0; pointer-events: none; transition: opacity 220ms ease-out; }
+  .mobile-menu[data-open="true"] { opacity: 1; pointer-events: auto; }
   .mobile-menu-link { transition: transform 220ms ease-out, opacity 220ms ease-out; }
 
   .countdown-num { transition: opacity 260ms ease-out; }
@@ -149,7 +148,7 @@ tailwind.config = {
 </header>
 
 <!-- ============ MOBILE MENU ============ -->
-<div id="mobile-menu" data-open="false" class="mobile-menu fixed inset-0 z-40 bg-ivory xl:hidden">
+<div id="mobile-menu" data-open="false" aria-hidden="true" class="mobile-menu fixed inset-0 z-40 bg-ivory xl:hidden">
   <nav class="h-full flex flex-col items-center justify-center gap-8 font-display text-3xl text-bottle">
     <a href="#inicio" class="mobile-menu-link">Inicio</a>
     <a href="#historia" class="mobile-menu-link">Nuestra historia</a>
@@ -162,33 +161,33 @@ tailwind.config = {
 </div>
 
 <!-- ============ HERO ============ -->
-<section id="inicio" class="relative h-[100svh] min-h-[560px] w-full overflow-hidden">
+<section id="inicio" class="relative min-h-[100svh] w-full overflow-hidden">
   <div class="absolute inset-0">
     <img id="hero-img" src="img/hero.jpg" alt="La Giralda y la Catedral de Sevilla al atardecer, luz dorada sobre la arquitectura clásica del casco antiguo" class="hero-parallax w-full h-[120%] object-cover object-center" fetchpriority="high">
     <div class="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/25 to-ink/55"></div>
   </div>
 
-  <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
-    <p class="reveal font-body text-ivory/90 text-xs md:text-sm tracking-wide-xl uppercase mb-6">Nos casamos</p>
-    <h1 class="reveal font-display text-ivory text-[15vw] leading-[0.95] sm:text-7xl md:text-8xl lg:text-9xl tracking-wide-lg">Elena&nbsp;&amp; Marcos</h1>
-    <p class="reveal font-display italic text-ivory/95 text-xl md:text-2xl mt-6 max-w-prose">«Dos caminos que se encontraron para no separarse jamás»</p>
-    <p class="reveal font-body text-ivory text-sm md:text-base tracking-wide-lg uppercase mt-4">12 de junio de 2027 · Sevilla</p>
+  <div class="relative z-10 min-h-[100svh] flex flex-col items-center justify-center text-center px-6 py-28">
+    <p class="reveal font-body text-ivory/90 text-xs md:text-sm tracking-wide-xl uppercase mb-4 sm:mb-6">Nos casamos</p>
+    <h1 class="reveal font-display text-ivory text-[13vw] leading-[0.95] sm:text-7xl md:text-8xl lg:text-9xl tracking-wide-lg">Elena&nbsp;&amp; Marcos</h1>
+    <p class="reveal font-display italic text-ivory/95 text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 max-w-prose">«Dos caminos que se encontraron para no separarse jamás»</p>
+    <p class="reveal font-body text-ivory text-sm md:text-base tracking-wide-lg uppercase mt-3 sm:mt-4">12 de junio de 2027 · Sevilla</p>
 
-    <div id="countdown" class="reveal mt-10 grid grid-cols-4 gap-4 sm:gap-8 font-body text-ivory">
+    <div id="countdown" class="reveal mt-6 sm:mt-10 grid grid-cols-4 gap-4 sm:gap-8 font-body text-ivory">
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-3xl sm:text-5xl tracking-wide" data-unit="days">00</span>
+        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="days">00</span>
         <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Días</span>
       </div>
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-3xl sm:text-5xl tracking-wide" data-unit="hours">00</span>
+        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="hours">00</span>
         <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Horas</span>
       </div>
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-3xl sm:text-5xl tracking-wide" data-unit="minutes">00</span>
+        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="minutes">00</span>
         <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Min</span>
       </div>
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-3xl sm:text-5xl tracking-wide" data-unit="seconds">00</span>
+        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="seconds">00</span>
         <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Seg</span>
       </div>
     </div>
@@ -684,6 +683,7 @@ tailwind.config = {
   function setMenu(open) {
     menuOpen = open;
     mobileMenu.setAttribute('data-open', open ? 'true' : 'false');
+    mobileMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     menuToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
     document.documentElement.style.overflow = open ? 'hidden' : '';
