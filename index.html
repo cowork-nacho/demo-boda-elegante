@@ -63,6 +63,12 @@ tailwind.config = {
 
   .header-scrolled { background-color: rgba(250, 246, 239, 0.96); box-shadow: 0 1px 0 rgba(37,54,38,0.08), 0 8px 24px -12px rgba(42,37,33,0.15); }
 
+  #site-header .monogram, #site-header nav a { color: #FAF6EF; text-shadow: 0 1px 6px rgba(42,37,33,0.35); transition: color 300ms ease-out, text-shadow 300ms ease-out; }
+  #site-header .menu-bar { background-color: #FAF6EF; box-shadow: 0 1px 4px rgba(42,37,33,0.35); transition: background-color 300ms ease-out, box-shadow 300ms ease-out; }
+  #site-header.header-scrolled .monogram { color: #253626; text-shadow: none; }
+  #site-header.header-scrolled nav a { color: #2A2521; text-shadow: none; }
+  #site-header.header-scrolled .menu-bar { background-color: #253626; box-shadow: none; }
+
   ::selection { background: #B08D3D; color: #FAF6EF; }
 
   .btn-gold {
@@ -118,9 +124,9 @@ tailwind.config = {
 <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-5 md:px-10">
     <div class="flex items-center justify-between h-20 md:h-24">
-      <a href="#inicio" class="font-display text-2xl md:text-3xl tracking-wide-lg text-bottle" aria-label="Elena & Marcos, inicio">E&nbsp;&amp;&nbsp;M</a>
+      <a href="#inicio" class="monogram font-display text-2xl md:text-3xl tracking-wide-lg" aria-label="Elena & Marcos, inicio">E&nbsp;&amp;&nbsp;M</a>
 
-      <nav class="hidden xl:flex items-center gap-8 font-body text-[13px] tracking-wide-lg uppercase text-ink">
+      <nav class="hidden xl:flex items-center gap-8 font-body text-[13px] tracking-wide-lg uppercase">
         <a href="#inicio" class="link-underline">Inicio</a>
         <a href="#historia" class="link-underline">Nuestra historia</a>
         <a href="#boda" class="link-underline">La boda</a>
@@ -132,9 +138,9 @@ tailwind.config = {
       <div class="flex items-center gap-4">
         <a href="#rsvp" class="btn-gold hidden sm:inline-flex items-center bg-gold text-ink text-[13px] tracking-wide-lg uppercase px-6 py-3 rounded-sm">Confirmar asistencia</a>
         <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" class="xl:hidden flex flex-col justify-center items-center w-11 h-11 -mr-2 gap-[5px]">
-          <span id="bar1" class="block w-6 h-[1.5px] bg-bottle transition-transform duration-300"></span>
-          <span id="bar2" class="block w-6 h-[1.5px] bg-bottle transition-opacity duration-300"></span>
-          <span id="bar3" class="block w-6 h-[1.5px] bg-bottle transition-transform duration-300"></span>
+          <span id="bar1" class="menu-bar block w-6 h-[1.5px] transition-transform duration-300"></span>
+          <span id="bar2" class="menu-bar block w-6 h-[1.5px] transition-opacity duration-300"></span>
+          <span id="bar3" class="menu-bar block w-6 h-[1.5px] transition-transform duration-300"></span>
         </button>
       </div>
     </div>
@@ -651,7 +657,7 @@ tailwind.config = {
     </nav>
 
     <div class="w-12 h-px bg-ivory/20 mx-auto mb-6"></div>
-    <p class="text-[11px] tracking-wide text-ivory/60">Diseño y desarrollo — Nacho Gallardo, estudio de webs de boda</p>
+    <p class="text-[11px] tracking-wide text-ivory/60">Diseño y desarrollo — NGS</p>
   </div>
 </footer>
 
