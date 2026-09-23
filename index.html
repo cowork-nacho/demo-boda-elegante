@@ -9,11 +9,11 @@
 <meta property="og:description" content="Acompáñanos a celebrar nuestra boda en Sevilla. Toda la información de la ceremonia, la celebración y cómo confirmar tu asistencia.">
 <meta property="og:image" content="https://cowork-nacho.github.io/demo-boda-elegante/img/hero.jpg">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23B08D3D%22>&%2310047;</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23B84A2B%22>&%2310047;</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
@@ -21,18 +21,17 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ivory: '#FAF6EF',
-        'ivory-deep': '#F3ECDF',
-        bottle: '#253626',
-        'bottle-light': '#3A4F3B',
-        gold: '#B08D3D',
-        'gold-light': '#C9A860',
-        'gold-deep': '#7A5D24',
-        ink: '#2A2521',
+        plaster: '#F4EEE2',
+        'plaster-deep': '#EAE1CE',
+        iron: '#211D17',
+        'iron-soft': '#4A4235',
+        terracotta: '#B84A2B',
+        'terracotta-deep': '#8F3A21',
+        'terracotta-light': '#D69C87',
       },
       fontFamily: {
-        display: ['"Cormorant Garamond"', 'serif'],
-        body: ['"Jost"', 'sans-serif'],
+        display: ['"Bodoni Moda"', 'serif'],
+        body: ['"Archivo"', 'sans-serif'],
       },
       maxWidth: {
         prose: '38rem',
@@ -50,7 +49,53 @@ tailwind.config = {
 
 <style>
   html { scroll-behavior: smooth; }
-  body { background-color: #FAF6EF; }
+  body { background-color: #F4EEE2; }
+
+  /* Rejería — hairline iron-grille pattern system. Two densities: a fine repeating lattice for section
+     dividers/frames, and a coarser corner motif for card corners. Both drawn as SVG data-URIs so they
+     scale crisply and never depend on an external asset. */
+  .grille-divider {
+    height: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cg fill='none' stroke='%23211D17' stroke-width='1'%3E%3Cpath d='M0 14 L14 0 L28 14 L14 28 Z'/%3E%3Cpath d='M28 14 L42 0 L56 14 L42 28 Z'/%3E%3Ccircle cx='14' cy='14' r='2.5'/%3E%3Ccircle cx='42' cy='14' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity: 0.5;
+  }
+  .grille-divider.on-dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='28' viewBox='0 0 56 28'%3E%3Cg fill='none' stroke='%23F4EEE2' stroke-width='1'%3E%3Cpath d='M0 14 L14 0 L28 14 L14 28 Z'/%3E%3Cpath d='M28 14 L42 0 L56 14 L42 28 Z'/%3E%3Ccircle cx='14' cy='14' r='2.5'/%3E%3Ccircle cx='42' cy='14' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  .grille-frame, .grille-frame-2 {
+    position: relative;
+  }
+  .grille-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 1px solid #211D17;
+    z-index: 2;
+  }
+  .grille-frame::after {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 34px; height: 34px;
+    pointer-events: none;
+    z-index: 3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cg fill='none' stroke='%23211D17' stroke-width='1.3'%3E%3Cpath d='M0 12 Q10 12 12 0'/%3E%3Cpath d='M0 20 Q18 20 20 0'/%3E%3Ccircle cx='9' cy='9' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  .grille-frame-2::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 34px; height: 34px;
+    pointer-events: none;
+    z-index: 3;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Cg fill='none' stroke='%23211D17' stroke-width='1.3'%3E%3Cpath d='M34 22 Q24 22 22 34'/%3E%3Cpath d='M34 14 Q16 14 14 34'/%3E%3Ccircle cx='25' cy='25' r='2.2'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
 
   /* Hardcoded (not Tailwind-JIT-dependent) so the hero is always full-height on first paint, before the CDN script compiles utility classes.
      min-height uses the LARGEST possible mobile viewport (100vh, and 100lvh where supported) rather than svh/dvh, which track the
@@ -61,6 +106,17 @@ tailwind.config = {
   @supports (height: 100lvh) { #inicio { min-height: 100lvh; } }
   #inicio img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
+  /* Directional scrim concentrated behind the text column (radial, centered) plus a floor/ceiling read
+     for the crest and the scroll edges — deliberately uneven rather than a flat wash, so the photo still
+     breathes at the corners while the type sits on real, measured contrast. */
+  .hero-scrim {
+    background:
+      radial-gradient(60% 52% at 50% 46%, rgba(20,17,12,0.62) 0%, rgba(20,17,12,0.34) 55%, rgba(20,17,12,0) 78%),
+      linear-gradient(to bottom, rgba(20,17,12,0.42) 0%, rgba(20,17,12,0.05) 22%, rgba(20,17,12,0.05) 68%, rgba(20,17,12,0.5) 100%);
+  }
+  .hero-text { text-shadow: 0 2px 18px rgba(15,12,8,0.55), 0 1px 3px rgba(15,12,8,0.65); }
+  .hero-accent { color: #EAC0AC; }
+
   section[id] { scroll-margin-top: 88px; }
   @media (min-width: 768px) { section[id] { scroll-margin-top: 96px; } }
 
@@ -70,23 +126,37 @@ tailwind.config = {
 
   .reveal { opacity: 0; transform: translateY(28px); }
 
-  .header-scrolled { background-color: rgba(250, 246, 239, 0.96); box-shadow: 0 1px 0 rgba(37,54,38,0.08), 0 8px 24px -12px rgba(42,37,33,0.15); }
+  .header-scrolled { background-color: rgba(244, 238, 226, 0.96); box-shadow: 0 1px 0 rgba(33,29,23,0.10), 0 8px 24px -12px rgba(42,37,33,0.15); }
   body.menu-open #header-cta { display: none; }
 
-  #site-header .monogram, #site-header nav a { color: #FAF6EF; text-shadow: 0 1px 6px rgba(42,37,33,0.35); transition: color 300ms ease-out, text-shadow 300ms ease-out; }
-  #site-header .menu-bar { background-color: #FAF6EF; box-shadow: 0 1px 4px rgba(42,37,33,0.35); transition: background-color 300ms ease-out, box-shadow 300ms ease-out; }
-  #site-header.header-scrolled .monogram { color: #253626; text-shadow: none; }
-  #site-header.header-scrolled nav a { color: #2A2521; text-shadow: none; }
-  #site-header.header-scrolled .menu-bar { background-color: #253626; box-shadow: none; }
+  #site-header .monogram, #site-header nav a { color: #F4EEE2; text-shadow: 0 1px 6px rgba(42,37,33,0.35); transition: color 300ms ease-out, text-shadow 300ms ease-out; }
+  #site-header .menu-bar { background-color: #F4EEE2; box-shadow: 0 1px 4px rgba(42,37,33,0.35); transition: background-color 300ms ease-out, box-shadow 300ms ease-out; }
+  #site-header.header-scrolled .monogram { color: #211D17; text-shadow: none; }
+  #site-header.header-scrolled nav a { color: #211D17; text-shadow: none; }
+  #site-header.header-scrolled .menu-bar { background-color: #211D17; box-shadow: none; }
 
-  ::selection { background: #B08D3D; color: #FAF6EF; }
+  ::selection { background: #B84A2B; color: #F4EEE2; }
 
-  .btn-gold {
+  /* Cast-plaque button: sharp corners (no radius — a radius reads as generic UI, not forged/cast),
+     a hairline inset border standing off from the edge like a struck plate, and a hover that draws
+     the border tight rather than just swapping the fill — an assembled affordance, not a bespoke one. */
+  .btn-iron {
+    position: relative;
+    border-radius: 0;
     transition: transform 180ms ease-out, background-color 220ms ease-out, box-shadow 220ms ease-out;
   }
-  .btn-gold:active { transform: scale(0.97); }
+  .btn-iron::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    pointer-events: none;
+    border: 1px solid rgba(244,238,226,0.55);
+    transition: inset 220ms ease-out;
+  }
+  .btn-iron:active { transform: scale(0.97); }
   @media (hover: hover) {
-    .btn-gold:hover { background-color: #C9A860; box-shadow: 0 8px 20px -8px rgba(176,141,61,0.55); }
+    .btn-iron:hover { background-color: #9C3E23; color: #F4EEE2; box-shadow: 0 10px 26px -10px rgba(33,29,23,0.55); }
+    .btn-iron:hover::before { inset: 2px; }
   }
 
   .link-underline { position: relative; }
@@ -118,16 +188,16 @@ tailwind.config = {
   .countdown-num { transition: opacity 260ms ease-out; }
 
   input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible, a:focus-visible {
-    outline: 2px solid #B08D3D; outline-offset: 3px;
+    outline: 2px solid #B84A2B; outline-offset: 3px;
   }
 
-  .swiper-pagination-bullet { background: #B08D3D !important; opacity: 0.35; }
+  .swiper-pagination-bullet { background: #B84A2B !important; opacity: 0.35; }
   .swiper-pagination-bullet-active { opacity: 1 !important; }
 
   .hero-parallax { will-change: transform; }
 </style>
 </head>
-<body class="bg-ivory text-ink font-body antialiased">
+<body class="bg-plaster text-iron font-body antialiased">
 
 <!-- ============ HEADER ============ -->
 <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-colors duration-300">
@@ -145,7 +215,7 @@ tailwind.config = {
       </nav>
 
       <div class="flex items-center gap-4">
-        <a href="#rsvp" id="header-cta" class="btn-gold hidden sm:inline-flex items-center bg-gold text-ink text-[13px] tracking-wide-lg uppercase px-6 py-3 rounded-sm">Confirmar asistencia</a>
+        <a href="#rsvp" id="header-cta" class="btn-iron hidden sm:inline-flex items-center bg-terracotta-deep text-plaster text-[13px] tracking-wide-lg uppercase px-7 py-3.5">Confirmar asistencia</a>
         <button id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" class="xl:hidden flex flex-col justify-center items-center w-11 h-11 -mr-2 gap-[5px]">
           <span id="bar1" class="menu-bar block w-6 h-[1.5px] transition-transform duration-300"></span>
           <span id="bar2" class="menu-bar block w-6 h-[1.5px] transition-opacity duration-300"></span>
@@ -157,112 +227,109 @@ tailwind.config = {
 </header>
 
 <!-- ============ MOBILE MENU ============ -->
-<div id="mobile-menu" data-open="false" aria-hidden="true" class="mobile-menu fixed inset-0 z-40 bg-ivory xl:hidden overflow-y-auto">
-  <nav class="min-h-full flex flex-col items-center justify-center gap-5 sm:gap-8 font-display text-2xl sm:text-3xl text-bottle py-24 px-6">
+<div id="mobile-menu" data-open="false" aria-hidden="true" class="mobile-menu fixed inset-0 z-40 bg-plaster xl:hidden overflow-y-auto">
+  <nav class="min-h-full flex flex-col items-center justify-center gap-5 sm:gap-8 font-display text-2xl sm:text-3xl text-iron py-24 px-6">
     <a href="#inicio" class="mobile-menu-link">Inicio</a>
     <a href="#historia" class="mobile-menu-link">Nuestra historia</a>
     <a href="#boda" class="mobile-menu-link">La boda</a>
     <a href="#galeria" class="mobile-menu-link">Galería</a>
     <a href="#invitados" class="mobile-menu-link">Info para invitados</a>
     <a href="#faq" class="mobile-menu-link">FAQ</a>
-    <a href="#rsvp" class="mobile-menu-link btn-gold mt-4 inline-flex items-center bg-gold text-ink text-sm tracking-wide-lg uppercase px-8 py-4 rounded-sm">Confirmar asistencia</a>
+    <a href="#rsvp" class="mobile-menu-link btn-iron mt-4 inline-flex items-center bg-terracotta-deep text-plaster text-sm tracking-wide-lg uppercase px-9 py-4">Confirmar asistencia</a>
   </nav>
 </div>
 
 <!-- ============ HERO ============ -->
 <section id="inicio" class="relative min-h-screen w-full overflow-hidden">
   <img id="hero-img" src="img/hero.jpg" alt="La Giralda y la Catedral de Sevilla al atardecer, luz dorada sobre la arquitectura clásica del casco antiguo" class="hero-parallax absolute inset-0 w-full h-full object-cover object-center" fetchpriority="high">
-  <div class="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/25 to-ink/55"></div>
+  <div class="absolute inset-0 hero-scrim"></div>
+  <div class="absolute inset-0 pointer-events-none" style="box-shadow: inset 0 0 0 10px rgba(244,238,226,0.9), inset 0 0 0 14px rgba(33,29,23,0.85);"></div>
+  <div class="absolute inset-[14px] pointer-events-none border border-plaster/70"></div>
 
   <div class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6 py-28">
-    <p class="reveal font-body text-ivory/90 text-xs md:text-sm tracking-wide-xl uppercase mb-4 sm:mb-6">Nos casamos</p>
-    <h1 class="reveal font-display text-ivory text-[13vw] leading-[1.05] sm:leading-[0.95] sm:text-7xl md:text-8xl lg:text-9xl tracking-wide-lg">
+    <h1 class="reveal hero-text font-display text-plaster text-[13vw] leading-[1.05] sm:leading-[0.95] sm:text-7xl md:text-8xl lg:text-9xl tracking-wide-lg">
       <span class="block sm:inline">Elena</span>
-      <span class="block sm:inline">&amp;</span>
+      <span class="block sm:inline hero-accent">&amp;</span>
       <span class="block sm:inline">Marcos</span>
     </h1>
-    <p class="reveal font-display italic text-ivory/95 text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 max-w-prose">«Dos caminos que se encontraron para no separarse jamás»</p>
-    <p class="reveal font-body text-ivory text-sm md:text-base tracking-wide-lg uppercase mt-3 sm:mt-4">12 de junio de 2027 · Sevilla</p>
+    <p class="reveal hero-text font-display italic text-plaster text-lg sm:text-xl md:text-2xl mt-4 sm:mt-6 max-w-prose">«Dos caminos que se encontraron para no separarse jamás»</p>
+    <p class="reveal hero-text hero-accent font-body text-sm md:text-base tracking-wide-lg uppercase mt-3 sm:mt-4">12 de junio de 2027 · Sevilla</p>
 
-    <div id="countdown" class="reveal mt-6 sm:mt-10 grid grid-cols-4 gap-4 sm:gap-8 font-body text-ivory">
+    <div id="countdown" class="reveal mt-6 sm:mt-10 grid grid-cols-4 gap-4 sm:gap-8 font-body text-plaster">
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="days">00</span>
-        <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Días</span>
+        <span class="countdown-num hero-text font-display text-2xl sm:text-5xl tracking-wide" data-unit="days">00</span>
+        <span class="hero-text text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-plaster/90">Días</span>
       </div>
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="hours">00</span>
-        <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Horas</span>
+        <span class="countdown-num hero-text font-display text-2xl sm:text-5xl tracking-wide" data-unit="hours">00</span>
+        <span class="hero-text text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-plaster/90">Horas</span>
       </div>
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="minutes">00</span>
-        <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Min</span>
+        <span class="countdown-num hero-text font-display text-2xl sm:text-5xl tracking-wide" data-unit="minutes">00</span>
+        <span class="hero-text text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-plaster/90">Min</span>
       </div>
       <div class="flex flex-col items-center">
-        <span class="countdown-num font-display text-2xl sm:text-5xl tracking-wide" data-unit="seconds">00</span>
-        <span class="text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-ivory/80">Seg</span>
+        <span class="countdown-num hero-text font-display text-2xl sm:text-5xl tracking-wide" data-unit="seconds">00</span>
+        <span class="hero-text text-[10px] sm:text-xs tracking-wide-lg uppercase mt-2 text-plaster/90">Seg</span>
       </div>
     </div>
   </div>
-
-  <a href="#historia" aria-label="Ir a la siguiente sección" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-ivory/90 animate-bounce" style="animation-duration: 2.2s;">
-    <svg width="22" height="34" viewBox="0 0 22 34" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="20" height="32" rx="10" stroke="currentColor" stroke-width="1.2"/><circle cx="11" cy="10" r="2" fill="currentColor"/></svg>
-  </a>
 </section>
 
 <!-- ============ NUESTRA HISTORIA ============ -->
-<section id="historia" class="py-24 md:py-36 px-5 md:px-10 bg-ivory">
+<section id="historia" class="py-24 md:py-36 px-5 md:px-10 bg-plaster">
   <div class="max-w-6xl mx-auto">
     <div class="reveal text-center max-w-prose mx-auto mb-16 md:mb-24">
-      <p class="text-gold-deep text-xs tracking-wide-xl uppercase mb-4">Nuestra historia</p>
-      <h2 class="font-display text-4xl md:text-5xl text-bottle">Un camino compartido</h2>
+      <h2 class="font-display text-4xl md:text-5xl text-iron">Un camino compartido</h2>
+      <div class="grille-divider w-40 mx-auto mt-6"></div>
     </div>
 
     <div class="space-y-20 md:space-y-32">
       <!-- Hito 1 -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div class="reveal order-2 md:order-1">
-          <p class="font-display text-gold-deep text-2xl mb-3">Primavera de 2019</p>
-          <h3 class="font-display text-2xl md:text-3xl text-bottle mb-4">Un encuentro casual</h3>
-          <p class="text-ink/85 leading-relaxed max-w-prose">Se conocieron en la boda de unos amigos comunes, entre brindis y una conversación que empezó por casualidad junto a la barra y que ninguno de los dos quiso terminar. Esa misma noche supieron que volverían a verse.</p>
+          <p class="font-display text-terracotta-deep text-2xl mb-3">Primavera de 2019</p>
+          <h3 class="font-display text-2xl md:text-3xl text-iron mb-4">Un encuentro casual</h3>
+          <p class="text-iron/85 leading-relaxed max-w-prose">Se conocieron en la boda de unos amigos comunes, entre brindis y una conversación que empezó por casualidad junto a la barra y que ninguno de los dos quiso terminar. Esa misma noche supieron que volverían a verse.</p>
         </div>
-        <div class="reveal order-1 md:order-2 overflow-hidden rounded-sm">
+        <div class="reveal order-1 md:order-2 grille-frame grille-frame-2 overflow-hidden">
           <img src="img/story-1.jpg" alt="Silueta de dos personas contemplando el atardecer en la distancia" loading="lazy" class="w-full h-72 md:h-96 object-cover">
         </div>
       </div>
 
       <!-- Hito 2 -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <div class="reveal overflow-hidden rounded-sm">
+        <div class="reveal grille-frame grille-frame-2 overflow-hidden">
           <img src="img/story-2.jpg" alt="Primer plano de dos manos entrelazadas con un anillo dorado" loading="lazy" class="w-full h-72 md:h-96 object-cover">
         </div>
         <div class="reveal">
-          <p class="font-display text-gold-deep text-2xl mb-3">Verano de 2021</p>
-          <h3 class="font-display text-2xl md:text-3xl text-bottle mb-4">Un viaje que lo cambió todo</h3>
-          <p class="text-ink/85 leading-relaxed max-w-prose">Un viaje de tres semanas por el sur de Europa, con más imprevistos que planes, les enseñó que lo importante nunca fue el destino. Volvieron sabiendo que querían recorrer juntos todo lo que viniera después.</p>
+          <p class="font-display text-terracotta-deep text-2xl mb-3">Verano de 2021</p>
+          <h3 class="font-display text-2xl md:text-3xl text-iron mb-4">Un viaje que lo cambió todo</h3>
+          <p class="text-iron/85 leading-relaxed max-w-prose">Un viaje de tres semanas por el sur de Europa, con más imprevistos que planes, les enseñó que lo importante nunca fue el destino. Volvieron sabiendo que querían recorrer juntos todo lo que viniera después.</p>
         </div>
       </div>
 
       <!-- Hito 3 -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
         <div class="reveal order-2 md:order-1">
-          <p class="font-display text-gold-deep text-2xl mb-3">Diciembre de 2024</p>
-          <h3 class="font-display text-2xl md:text-3xl text-bottle mb-4">La pedida</h3>
-          <p class="text-ink/85 leading-relaxed max-w-prose">En una cena tranquila que Elena creía una cena cualquiera, Marcos había preparado algo muy distinto. Una pregunta, un anillo, y un sí que llegó sin dudarlo un segundo.</p>
+          <p class="font-display text-terracotta-deep text-2xl mb-3">Diciembre de 2024</p>
+          <h3 class="font-display text-2xl md:text-3xl text-iron mb-4">La pedida</h3>
+          <p class="text-iron/85 leading-relaxed max-w-prose">En una cena tranquila que Elena creía una cena cualquiera, Marcos había preparado algo muy distinto. Una pregunta, un anillo, y un sí que llegó sin dudarlo un segundo.</p>
         </div>
-        <div class="reveal order-1 md:order-2 overflow-hidden rounded-sm">
+        <div class="reveal order-1 md:order-2 grille-frame grille-frame-2 overflow-hidden">
           <img src="img/story-3.jpg" alt="Anillos de compromiso sobre una tarjeta de invitación escrita a mano" loading="lazy" class="w-full h-72 md:h-96 object-cover">
         </div>
       </div>
 
       <!-- Hito 4 -->
       <div class="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <div class="reveal overflow-hidden rounded-sm">
+        <div class="reveal grille-frame grille-frame-2 overflow-hidden">
           <img src="img/story-4.jpg" alt="Ramo de novia con rosas y follaje en tonos cálidos" loading="lazy" class="w-full h-72 md:h-96 object-cover">
         </div>
         <div class="reveal">
-          <p class="font-display text-gold-deep text-2xl mb-3">12 de junio de 2027</p>
-          <h3 class="font-display text-2xl md:text-3xl text-bottle mb-4">El siguiente capítulo</h3>
-          <p class="text-ink/85 leading-relaxed max-w-prose">Y ahora, rodeados de quienes más quieren, Elena y Marcos están listos para decirse «sí, quiero» en Sevilla, la ciudad que ya sienten como propia.</p>
+          <p class="font-display text-terracotta-deep text-2xl mb-3">12 de junio de 2027</p>
+          <h3 class="font-display text-2xl md:text-3xl text-iron mb-4">El siguiente capítulo</h3>
+          <p class="text-iron/85 leading-relaxed max-w-prose">Y ahora, rodeados de quienes más quieren, Elena y Marcos están listos para decirse «sí, quiero» en Sevilla, la ciudad que ya sienten como propia.</p>
         </div>
       </div>
     </div>
@@ -270,39 +337,38 @@ tailwind.config = {
 </section>
 
 <!-- ============ LA BODA ============ -->
-<section id="boda" class="py-24 md:py-36 px-5 md:px-10 bg-bottle text-ivory">
+<section id="boda" class="py-24 md:py-36 px-5 md:px-10 bg-iron text-plaster">
   <div class="max-w-6xl mx-auto">
     <div class="reveal text-center max-w-prose mx-auto mb-16 md:mb-24">
-      <p class="text-gold-light text-xs tracking-wide-xl uppercase mb-4">12 de junio de 2027</p>
-      <h2 class="font-display text-4xl md:text-5xl text-ivory">La boda</h2>
+      <h2 class="font-display text-4xl md:text-5xl text-plaster">La boda · 12 de junio de 2027</h2>
+      <div class="grille-divider on-dark w-40 mx-auto mt-6"></div>
     </div>
 
     <div class="grid md:grid-cols-2 gap-10 md:gap-12">
       <!-- Ceremonia -->
       <div class="reveal flex flex-col">
-        <div class="overflow-hidden rounded-sm mb-8">
+        <div class="grille-frame grille-frame-2 overflow-hidden mb-8">
           <img src="img/ceremony.jpg" alt="Interior de una capilla clásica con columnas de piedra y velas encendidas" loading="lazy" class="w-full h-64 md:h-80 object-cover">
         </div>
-        <p class="text-gold-light text-xs tracking-wide-xl uppercase mb-3">Ceremonia</p>
-        <h3 class="font-display text-3xl mb-3">Capilla de Santa Inés</h3>
-        <p class="text-ivory/80 leading-relaxed max-w-prose mb-6 md:min-h-[4.9em]">Muros de piedra dorada, luz filtrada entre vidrieras y siglos de historia envolviendo cada rincón: el marco íntimo que Elena y Marcos eligieron para decirse «sí, quiero».</p>
+        <h3 class="font-display text-3xl mb-3">Ceremonia — Capilla de Santa Inés</h3>
+        <p class="text-plaster/80 leading-relaxed max-w-prose mb-6 md:min-h-[4.9em]">Muros de piedra dorada, luz filtrada entre vidrieras y siglos de historia envolviendo cada rincón: el marco íntimo que Elena y Marcos eligieron para decirse «sí, quiero».</p>
 
-        <ul class="space-y-3 text-sm text-ivory/90 mb-6">
+        <ul class="space-y-3 text-sm text-plaster/90 mb-6">
           <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-gold-light shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm60-92a4,4,0,0,1-4,4H128a4,4,0,0,1-4-4V72a4,4,0,0,1,8,0v52h52A4,4,0,0,1,188,128Z"/></svg>
+            <svg class="w-5 h-5 text-terracotta shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm60-92a4,4,0,0,1-4,4H128a4,4,0,0,1-4-4V72a4,4,0,0,1,8,0v52h52A4,4,0,0,1,188,128Z"/></svg>
             <span>12:30h</span>
           </li>
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-gold-light shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M128,68a36,36,0,1,0,36,36A36,36,0,0,0,128,68Zm0,64a28,28,0,1,1,28-28A28,28,0,0,1,128,132Zm0-112a84.09,84.09,0,0,0-84,84c0,30.42,14.17,62.79,41,93.62a250,250,0,0,0,40.73,37.66,4,4,0,0,0,4.58,0A250,250,0,0,0,171,197.62c26.81-30.83,41-63.2,41-93.62A84.09,84.09,0,0,0,128,20Zm37.1,172.23A254.62,254.62,0,0,1,128,227a254.62,254.62,0,0,1-37.1-34.81C73.15,171.8,52,139.9,52,104a76,76,0,0,1,152,0C204,139.9,182.85,171.8,165.1,192.23Z"/></svg>
+            <svg class="w-5 h-5 text-terracotta shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M128,68a36,36,0,1,0,36,36A36,36,0,0,0,128,68Zm0,64a28,28,0,1,1,28-28A28,28,0,0,1,128,132Zm0-112a84.09,84.09,0,0,0-84,84c0,30.42,14.17,62.79,41,93.62a250,250,0,0,0,40.73,37.66,4,4,0,0,0,4.58,0A250,250,0,0,0,171,197.62c26.81-30.83,41-63.2,41-93.62A84.09,84.09,0,0,0,128,20Zm37.1,172.23A254.62,254.62,0,0,1,128,227a254.62,254.62,0,0,1-37.1-34.81C73.15,171.8,52,139.9,52,104a76,76,0,0,1,152,0C204,139.9,182.85,171.8,165.1,192.23Z"/></svg>
             <span>C. Alfonso XII, 14<br>Casco Antiguo, 41001 Sevilla</span>
           </li>
         </ul>
 
-        <div class="overflow-hidden rounded-sm mb-6 aspect-[4/3]">
+        <div class="grille-frame grille-frame-2 overflow-hidden mb-6 aspect-[4/3]">
           <iframe title="Mapa de ubicación de la ceremonia en el Casco Antiguo de Sevilla" src="https://www.google.com/maps?q=Casco+Antiguo,+Sevilla&output=embed" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Casco+Antiguo,+Sevilla" target="_blank" rel="noopener" class="link-underline inline-flex items-center gap-2 text-sm tracking-wide-lg uppercase text-gold-light mt-auto w-fit">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Casco+Antiguo,+Sevilla" target="_blank" rel="noopener" class="link-underline inline-flex items-center gap-2 text-sm tracking-wide-lg uppercase text-terracotta-light mt-auto w-fit">
           Cómo llegar
           <svg class="w-4 h-4" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
         </a>
@@ -310,29 +376,28 @@ tailwind.config = {
 
       <!-- Celebración -->
       <div class="reveal flex flex-col">
-        <div class="overflow-hidden rounded-sm mb-8">
+        <div class="grille-frame grille-frame-2 overflow-hidden mb-8">
           <img src="img/celebration.jpg" alt="Patio interior de un palacio clásico con arcadas de piedra blanca" loading="lazy" class="w-full h-64 md:h-80 object-cover">
         </div>
-        <p class="text-gold-light text-xs tracking-wide-xl uppercase mb-3">Celebración</p>
-        <h3 class="font-display text-3xl mb-3">Palacio de Villahermosa</h3>
-        <p class="text-ivory/80 leading-relaxed max-w-prose mb-6 md:min-h-[4.9em]">Un patio de arcadas y naranjos donde la tarde sevillana se alarga entre copas, música y baile hasta bien entrada la noche.</p>
+        <h3 class="font-display text-3xl mb-3">Celebración — Palacio de Villahermosa</h3>
+        <p class="text-plaster/80 leading-relaxed max-w-prose mb-6 md:min-h-[4.9em]">Un patio de arcadas y naranjos donde la tarde sevillana se alarga entre copas, música y baile hasta bien entrada la noche.</p>
 
-        <ul class="space-y-3 text-sm text-ivory/90 mb-6">
+        <ul class="space-y-3 text-sm text-plaster/90 mb-6">
           <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-gold-light shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm60-92a4,4,0,0,1-4,4H128a4,4,0,0,1-4-4V72a4,4,0,0,1,8,0v52h52A4,4,0,0,1,188,128Z"/></svg>
+            <svg class="w-5 h-5 text-terracotta shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M128,28A100,100,0,1,0,228,128,100.11,100.11,0,0,0,128,28Zm0,192a92,92,0,1,1,92-92A92.1,92.1,0,0,1,128,220Zm60-92a4,4,0,0,1-4,4H128a4,4,0,0,1-4-4V72a4,4,0,0,1,8,0v52h52A4,4,0,0,1,188,128Z"/></svg>
             <span>14:30h</span>
           </li>
           <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-gold-light shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M128,68a36,36,0,1,0,36,36A36,36,0,0,0,128,68Zm0,64a28,28,0,1,1,28-28A28,28,0,0,1,128,132Zm0-112a84.09,84.09,0,0,0-84,84c0,30.42,14.17,62.79,41,93.62a250,250,0,0,0,40.73,37.66,4,4,0,0,0,4.58,0A250,250,0,0,0,171,197.62c26.81-30.83,41-63.2,41-93.62A84.09,84.09,0,0,0,128,20Zm37.1,172.23A254.62,254.62,0,0,1,128,227a254.62,254.62,0,0,1-37.1-34.81C73.15,171.8,52,139.9,52,104a76,76,0,0,1,152,0C204,139.9,182.85,171.8,165.1,192.23Z"/></svg>
+            <svg class="w-5 h-5 text-terracotta shrink-0 mt-0.5" viewBox="0 0 256 256" fill="currentColor"><path d="M128,68a36,36,0,1,0,36,36A36,36,0,0,0,128,68Zm0,64a28,28,0,1,1,28-28A28,28,0,0,1,128,132Zm0-112a84.09,84.09,0,0,0-84,84c0,30.42,14.17,62.79,41,93.62a250,250,0,0,0,40.73,37.66,4,4,0,0,0,4.58,0A250,250,0,0,0,171,197.62c26.81-30.83,41-63.2,41-93.62A84.09,84.09,0,0,0,128,20Zm37.1,172.23A254.62,254.62,0,0,1,128,227a254.62,254.62,0,0,1-37.1-34.81C73.15,171.8,52,139.9,52,104a76,76,0,0,1,152,0C204,139.9,182.85,171.8,165.1,192.23Z"/></svg>
             <span>Avda. de la Constitución, 22<br>Sevilla</span>
           </li>
         </ul>
 
-        <div class="overflow-hidden rounded-sm mb-6 aspect-[4/3]">
+        <div class="grille-frame grille-frame-2 overflow-hidden mb-6 aspect-[4/3]">
           <iframe title="Mapa de ubicación de la celebración en Sevilla" src="https://www.google.com/maps?q=Avenida+de+la+Constitucion,+Sevilla&output=embed" class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
 
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Avenida+de+la+Constitucion,+Sevilla" target="_blank" rel="noopener" class="link-underline inline-flex items-center gap-2 text-sm tracking-wide-lg uppercase text-gold-light mt-auto w-fit">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Avenida+de+la+Constitucion,+Sevilla" target="_blank" rel="noopener" class="link-underline inline-flex items-center gap-2 text-sm tracking-wide-lg uppercase text-terracotta-light mt-auto w-fit">
           Cómo llegar
           <svg class="w-4 h-4" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
         </a>
@@ -342,40 +407,40 @@ tailwind.config = {
 </section>
 
 <!-- ============ GALERÍA ============ -->
-<section id="galeria" class="py-24 md:py-36 px-5 md:px-10 bg-ivory">
+<section id="galeria" class="py-24 md:py-36 px-5 md:px-10 bg-plaster">
   <div class="max-w-6xl mx-auto">
     <div class="reveal text-center max-w-prose mx-auto mb-16">
-      <p class="text-gold-deep text-xs tracking-wide-xl uppercase mb-4">Instantes</p>
-      <h2 class="font-display text-4xl md:text-5xl text-bottle">Galería</h2>
+      <h2 class="font-display text-4xl md:text-5xl text-iron">Galería</h2>
+      <div class="grille-divider w-40 mx-auto mt-6"></div>
     </div>
 
     <!-- Desktop / tablet grid -->
     <div class="reveal hidden sm:grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4" id="gallery-grid">
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="0"><img src="img/gallery-1.jpg" alt="Ramo de rosas y eucalipto sobre fondo neutro" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="1"><img src="img/gallery-2.jpg" alt="Anillos de plata entrelazados junto a pétalos de rosa" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="2"><img src="img/gallery-3.jpg" alt="Mesa decorada con velas y flores secas en tonos cálidos" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="3"><img src="img/gallery-4.jpg" alt="Templete clásico decorado con flores para la ceremonia" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="4"><img src="img/gallery-5.jpg" alt="Detalle arquitectónico de un arco de estilo andalusí" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="5"><img src="img/gallery-6.jpg" alt="Patio andaluz con arcadas de piedra y plantas" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="6"><img src="img/gallery-7.jpg" alt="Copas de champán brindando con luz cálida de fondo" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="7"><img src="img/gallery-8.jpg" alt="Textura de escayola clásica en azul y blanco" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="8"><img src="img/gallery-9.jpg" alt="Velas de cera encendidas junto a ramas de eucalipto" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
-      <button class="gallery-item overflow-hidden rounded-sm" data-index="9"><img src="img/gallery-10.jpg" alt="Zapatos de novia bajo un velo de tul" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="0"><img src="img/gallery-1.jpg" alt="Ramo de rosas y eucalipto sobre fondo neutro" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="1"><img src="img/gallery-2.jpg" alt="Anillos de plata entrelazados junto a pétalos de rosa" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="2"><img src="img/terracotta-detail.jpg" alt="Maceta de barro con geranio rojo sobre un muro encalado" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="3"><img src="img/rejeria-1.jpg" alt="Reja de hierro forjado sevillana con motivos florales sobre un muro de cal" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="4"><img src="img/gallery-5.jpg" alt="Detalle arquitectónico de un arco de estilo andalusí" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="5"><img src="img/gallery-6.jpg" alt="Patio andaluz con arcadas de piedra y plantas" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="6"><img src="img/gallery-7.jpg" alt="Copas de champán brindando con luz cálida de fondo" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="7"><img src="img/gallery-8.jpg" alt="Textura de escayola clásica en azul y blanco" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="8"><img src="img/gallery-9.jpg" alt="Velas de cera encendidas junto a ramas de eucalipto" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
+      <button class="gallery-item grille-frame grille-frame-2 overflow-hidden" data-index="9"><img src="img/gallery-10.jpg" alt="Zapatos de novia bajo un velo de tul" loading="lazy" class="w-full h-48 md:h-56 object-cover"></button>
     </div>
 
     <!-- Mobile swiper -->
     <div class="reveal sm:hidden swiper" id="gallery-swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide"><button class="w-full" data-index="0"><img src="img/gallery-1.jpg" alt="Ramo de rosas y eucalipto sobre fondo neutro" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="1"><img src="img/gallery-2.jpg" alt="Anillos de plata entrelazados junto a pétalos de rosa" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="2"><img src="img/gallery-3.jpg" alt="Mesa decorada con velas y flores secas en tonos cálidos" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="3"><img src="img/gallery-4.jpg" alt="Templete clásico decorado con flores para la ceremonia" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="4"><img src="img/gallery-5.jpg" alt="Detalle arquitectónico de un arco de estilo andalusí" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="5"><img src="img/gallery-6.jpg" alt="Patio andaluz con arcadas de piedra y plantas" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="6"><img src="img/gallery-7.jpg" alt="Copas de champán brindando con luz cálida de fondo" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="7"><img src="img/gallery-8.jpg" alt="Textura de escayola clásica en azul y blanco" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="8"><img src="img/gallery-9.jpg" alt="Velas de cera encendidas junto a ramas de eucalipto" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
-        <div class="swiper-slide"><button class="w-full" data-index="9"><img src="img/gallery-10.jpg" alt="Zapatos de novia bajo un velo de tul" loading="lazy" class="w-full h-80 object-cover rounded-sm"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="0"><img src="img/gallery-1.jpg" alt="Ramo de rosas y eucalipto sobre fondo neutro" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="1"><img src="img/gallery-2.jpg" alt="Anillos de plata entrelazados junto a pétalos de rosa" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="2"><img src="img/terracotta-detail.jpg" alt="Maceta de barro con geranio rojo sobre un muro encalado" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="3"><img src="img/rejeria-1.jpg" alt="Reja de hierro forjado sevillana con motivos florales sobre un muro de cal" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="4"><img src="img/gallery-5.jpg" alt="Detalle arquitectónico de un arco de estilo andalusí" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="5"><img src="img/gallery-6.jpg" alt="Patio andaluz con arcadas de piedra y plantas" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="6"><img src="img/gallery-7.jpg" alt="Copas de champán brindando con luz cálida de fondo" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="7"><img src="img/gallery-8.jpg" alt="Textura de escayola clásica en azul y blanco" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="8"><img src="img/gallery-9.jpg" alt="Velas de cera encendidas junto a ramas de eucalipto" loading="lazy" class="w-full h-80 object-cover"></button></div>
+        <div class="swiper-slide"><button class="w-full" data-index="9"><img src="img/gallery-10.jpg" alt="Zapatos de novia bajo un velo de tul" loading="lazy" class="w-full h-80 object-cover"></button></div>
       </div>
       <div class="swiper-pagination mt-4 !relative"></div>
     </div>
@@ -383,96 +448,94 @@ tailwind.config = {
 </section>
 
 <!-- ============ LIGHTBOX ============ -->
-<div id="lightbox" class="fixed inset-0 z-[60] bg-ink/95 opacity-0 invisible flex items-center justify-center px-4" role="dialog" aria-modal="true" aria-label="Visor de galería">
-  <button id="lightbox-close" aria-label="Cerrar" class="absolute top-5 right-5 md:top-8 md:right-8 text-ivory/90 w-11 h-11 flex items-center justify-center">
+<div id="lightbox" class="fixed inset-0 z-[60] bg-iron/95 opacity-0 invisible flex items-center justify-center px-4" role="dialog" aria-modal="true" aria-label="Visor de galería">
+  <button id="lightbox-close" aria-label="Cerrar" class="absolute top-5 right-5 md:top-8 md:right-8 text-plaster/90 w-11 h-11 flex items-center justify-center">
     <svg class="w-7 h-7" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg>
   </button>
-  <button id="lightbox-prev" aria-label="Imagen anterior" class="absolute left-2 md:left-6 text-ivory/90 w-12 h-12 flex items-center justify-center">
+  <button id="lightbox-prev" aria-label="Imagen anterior" class="absolute left-2 md:left-6 text-plaster/90 w-12 h-12 flex items-center justify-center">
     <svg class="w-8 h-8" viewBox="0 0 256 256" fill="currentColor"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></svg>
   </button>
-  <button id="lightbox-next" aria-label="Imagen siguiente" class="absolute right-2 md:right-6 text-ivory/90 w-12 h-12 flex items-center justify-center">
+  <button id="lightbox-next" aria-label="Imagen siguiente" class="absolute right-2 md:right-6 text-plaster/90 w-12 h-12 flex items-center justify-center">
     <svg class="w-8 h-8" viewBox="0 0 256 256" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg>
   </button>
-  <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-[90vw] object-contain rounded-sm">
+  <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7" alt="" class="max-h-[85vh] max-w-[90vw] object-contain">
 </div>
 
 <!-- ============ INFO PARA INVITADOS ============ -->
-<section id="invitados" class="py-24 md:py-36 px-5 md:px-10 bg-ivory-deep">
-  <div class="max-w-6xl mx-auto">
+<section id="invitados" class="py-24 md:py-36 px-5 md:px-10 bg-plaster-deep">
+  <div class="max-w-4xl mx-auto">
     <div class="reveal text-center max-w-prose mx-auto mb-16 md:mb-20">
-      <p class="text-gold-deep text-xs tracking-wide-xl uppercase mb-4">Todo lo que necesitas saber</p>
-      <h2 class="font-display text-4xl md:text-5xl text-bottle">Información para invitados</h2>
+      <h2 class="font-display text-4xl md:text-5xl text-iron">Información para invitados</h2>
+      <div class="grille-divider w-40 mx-auto mt-6"></div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+    <div class="divide-y divide-iron/15 border-t border-b border-iron/15">
       <!-- Transporte -->
-      <div class="reveal bg-ivory p-8 md:p-10 rounded-sm">
-        <svg class="w-9 h-9 text-gold-deep mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M240,108H226.6L197.77,43.13a12,12,0,0,0-11-7.13H69.2a12,12,0,0,0-11,7.13L29.4,108H16a4,4,0,0,0,0,8H28v84a12,12,0,0,0,12,12H64a12,12,0,0,0,12-12V180H180v20a12,12,0,0,0,12,12h24a12,12,0,0,0,12-12V116h12a4,4,0,0,0,0-8ZM65.54,46.38A4,4,0,0,1,69.2,44H186.8a4,4,0,0,1,3.66,2.38L217.84,108H38.16ZM68,200a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V180H68Zm148,4H192a4,4,0,0,1-4-4V180h32v20A4,4,0,0,1,216,204Zm4-32H36V116H220ZM60,144a4,4,0,0,1,4-4H80a4,4,0,0,1,0,8H64A4,4,0,0,1,60,144Zm112,0a4,4,0,0,1,4-4h16a4,4,0,0,1,0,8H176A4,4,0,0,1,172,144Z"/></svg>
-        <h3 class="font-display text-2xl text-bottle mb-4">Transporte</h3>
-        <ul class="space-y-3 text-sm text-ink/80 leading-relaxed">
-          <li>La ceremonia y la celebración están a <strong class="text-ink">12 minutos en coche</strong> (unos 3,5&nbsp;km) una de otra.</li>
-          <li>Parking recomendado: <strong class="text-ink">Aparcamiento Cano y Cueto</strong>, a 4 minutos andando de la capilla.</li>
+      <div class="reveal grid md:grid-cols-[220px_1fr] gap-3 md:gap-10 py-10">
+        <h3 class="font-display text-2xl md:text-3xl text-iron">Transporte</h3>
+        <ul class="space-y-3 text-iron/80 leading-relaxed max-w-prose">
+          <li>La ceremonia y la celebración están a <strong class="text-iron">12 minutos en coche</strong> (unos 3,5&nbsp;km) una de otra.</li>
+          <li>Parking recomendado: <strong class="text-iron">Aparcamiento Cano y Cueto</strong>, a 4 minutos andando de la capilla.</li>
           <li>Habrá servicio de taxis a la salida de la celebración a partir de la medianoche.</li>
         </ul>
       </div>
 
       <!-- Alojamiento -->
-      <div class="reveal bg-ivory p-8 md:p-10 rounded-sm">
-        <svg class="w-9 h-9 text-gold-deep mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M240,144a4,4,0,0,1-4,4H180a4,4,0,0,1,0-8h56A4,4,0,0,1,240,144Zm-4,24H20V88a4,4,0,0,0-8,0V208a4,4,0,0,0,8,0V184H236v24a4,4,0,0,0,8,0V172A4,4,0,0,0,236,168ZM20,160V116a4,4,0,0,1,4-4h96a4,4,0,0,1,4,4v44Zm112,0V116a12.01,12.01,0,0,1,12-12h72a20,20,0,0,1,20,20v36Z"/></svg>
-        <h3 class="font-display text-2xl text-bottle mb-4">Alojamiento</h3>
-        <ul class="space-y-4 text-sm text-ink/80 leading-relaxed">
+      <div class="reveal grid md:grid-cols-[220px_1fr] gap-3 md:gap-10 py-10">
+        <h3 class="font-display text-2xl md:text-3xl text-iron">Alojamiento</h3>
+        <ul class="space-y-4 text-iron/80 leading-relaxed max-w-prose">
           <li>
-            <p class="text-ink font-medium">Hotel Casona del Rey <span class="text-gold-deep font-normal">— €€€</span></p>
+            <p class="text-iron font-medium">Hotel Casona del Rey <span class="text-terracotta-deep font-normal">— €€€</span></p>
             <p>A 6 minutos andando de la celebración.</p>
           </li>
           <li>
-            <p class="text-ink font-medium">Hostal Patio Naranjo <span class="text-gold-deep font-normal">— €€</span></p>
+            <p class="text-iron font-medium">Hostal Patio Naranjo <span class="text-terracotta-deep font-normal">— €€</span></p>
             <p>A 10 minutos andando del Casco Antiguo.</p>
           </li>
           <li>
-            <p class="text-ink font-medium">Hotel Giralda Vista <span class="text-gold-deep font-normal">— €€€€</span></p>
+            <p class="text-iron font-medium">Hotel Giralda Vista <span class="text-terracotta-deep font-normal">— €€€€</span></p>
             <p>A 15 minutos en taxi de ambas ubicaciones.</p>
           </li>
         </ul>
       </div>
 
       <!-- Código de vestimenta -->
-      <div class="reveal bg-ivory p-8 md:p-10 rounded-sm">
-        <svg class="w-9 h-9 text-gold-deep mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M188,32H68a4,4,0,0,0-2.66,1L21.34,74a4,4,0,0,0-.2,5.42l24,28a4,4,0,0,0,5.79.28L76,84.51V220a4,4,0,0,0,4,4h96a4,4,0,0,0,4-4V84.51l25.07,23.19a4,4,0,0,0,5.79-.28l24-28A4,4,0,0,0,234.66,74L190.66,33A4,4,0,0,0,188,32Zm40.71,44.68L208.16,100.3,172,66.86V40h14.34ZM108,40h40a20,20,0,0,1-40,0Zm-6.94,0a28,28,0,0,0,53.88,0H172V68.6L128.3,109.18a4,4,0,0,1-5.42-.18L84,68.42V40ZM84,80.53l32.2,32.58a12,12,0,0,0,16.3.54L172,80.64V216H84ZM47.84,100.3,27.29,76.68,69.66,40H84V66.86Z"/></svg>
-        <h3 class="font-display text-2xl text-bottle mb-4">Código de vestimenta</h3>
-        <p class="text-sm text-ink/80 leading-relaxed mb-3"><strong class="text-ink">Formal / etiqueta.</strong> Vestido largo o cóctel elegante para ellas, traje oscuro para ellos.</p>
-        <p class="text-sm text-ink/80 leading-relaxed">Evitad el blanco y los tonos muy cercanos al marfil o crudo, reservados para la novia. La ceremonia y la celebración serán en exterior e interior, así que un chal ligero para la noche siempre es buena idea.</p>
+      <div class="reveal grid md:grid-cols-[220px_1fr] gap-3 md:gap-10 py-10">
+        <h3 class="font-display text-2xl md:text-3xl text-iron">Código de vestimenta</h3>
+        <div class="max-w-prose">
+          <p class="text-iron/80 leading-relaxed mb-3"><strong class="text-iron">Formal / etiqueta.</strong> Vestido largo o cóctel elegante para ellas, traje oscuro para ellos.</p>
+          <p class="text-iron/80 leading-relaxed">Evitad el blanco y los tonos muy cercanos al marfil o crudo, reservados para la novia. La ceremonia y la celebración serán en exterior e interior, así que un chal ligero para la noche siempre es buena idea.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ MESA DE REGALOS ============ -->
-<section id="regalo" class="py-24 md:py-32 px-5 md:px-10 bg-bottle text-ivory">
+<section id="regalo" class="py-24 md:py-32 px-5 md:px-10 bg-iron text-plaster">
   <div class="max-w-2xl mx-auto text-center">
-    <svg class="w-10 h-10 text-gold-light mx-auto mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M128,70a42,42,0,1,0-42-42A42,42,0,0,0,128,70Zm0-76a34,34,0,1,1-34,34A34,34,0,0,1,128,-6Z"/><path d="M232,64H175.62a42,42,0,1,0-47.62,0H24A16,16,0,0,0,8,80v40a16,16,0,0,0,16,16v88a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V136a16,16,0,0,0,16-16V80A16,16,0,0,0,232,64ZM94,42a34,34,0,1,1,34,34A34,34,0,0,1,94,42ZM16,80a8,8,0,0,1,8-8H120v40H24a8,8,0,0,1-8-8Zm24,128V136h80v80H48A8,8,0,0,1,40,208Zm168,0a8,8,0,0,1-8,8H136V136h80v72Zm16-96H136V72h96a8,8,0,0,1,8,8v32A8,8,0,0,1,224,112Z"/></svg>
-    <p class="text-gold-light text-xs tracking-wide-xl uppercase mb-4">Mesa de regalos</p>
     <h2 class="font-display text-4xl md:text-5xl mb-6">Vuestra presencia es el mejor regalo</h2>
-    <p class="text-ivory/80 leading-relaxed max-w-prose mx-auto mb-10">Tenerte con nosotros ese día ya es todo lo que necesitamos. Aun así, para quien prefiera acompañar su enhorabuena con un detalle en forma de aportación, dejamos aquí nuestros datos.</p>
+    <div class="grille-divider on-dark w-40 mx-auto mb-8"></div>
+    <p class="text-plaster/80 leading-relaxed max-w-prose mx-auto mb-10">Tenerte con nosotros ese día ya es todo lo que necesitamos. Aun así, para quien prefiera acompañar su enhorabuena con un detalle en forma de aportación, dejamos aquí nuestros datos.</p>
 
-    <div class="inline-block bg-ivory/10 border border-ivory/20 rounded-sm px-8 py-6 mb-10">
-      <p class="text-xs tracking-wide-lg uppercase text-ivory/60 mb-2">IBAN (a modo de ejemplo)</p>
+    <div class="grille-frame inline-block bg-plaster/[0.06] px-8 py-6 mb-10">
+      <p class="text-xs tracking-wide-lg uppercase text-plaster/70 mb-2">IBAN (a modo de ejemplo)</p>
       <p class="font-display text-xl md:text-2xl tracking-wide">ES00 0000 0000 0000 0000 0000</p>
     </div>
 
     <div>
-      <a href="#" class="link-underline text-sm tracking-wide-lg uppercase text-gold-light">Ver lista de regalos</a>
+      <a href="#" class="link-underline text-sm tracking-wide-lg uppercase text-terracotta-light">Ver lista de regalos</a>
     </div>
   </div>
 </section>
 
 <!-- ============ RSVP ============ -->
-<section id="rsvp" class="py-24 md:py-36 px-5 md:px-10 bg-ivory">
+<section id="rsvp" class="py-24 md:py-36 px-5 md:px-10 bg-plaster">
   <div class="max-w-2xl mx-auto">
     <div class="reveal text-center mb-4">
-      <p class="text-gold-deep text-xs tracking-wide-xl uppercase mb-4">Confirmación de asistencia</p>
-      <h2 class="font-display text-4xl md:text-5xl text-bottle mb-4">RSVP</h2>
-      <p class="text-ink/70 text-sm">Por favor, confirma tu asistencia antes del <strong class="text-ink">1 de mayo de 2027</strong>.</p>
+      <h2 class="font-display text-4xl md:text-5xl text-iron mb-3">Confirmación de asistencia</h2>
+      <div class="grille-divider w-40 mx-auto mb-5"></div>
+      <p class="text-iron/70 text-sm">Por favor, confirma tu asistencia antes del <strong class="text-iron">1 de mayo de 2027</strong>.</p>
     </div>
 
     <div class="reveal mt-12 relative">
@@ -482,29 +545,29 @@ tailwind.config = {
         <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
         <div>
-          <label for="rsvp-name" class="block text-xs tracking-wide-lg uppercase text-ink/70 mb-2">Nombre completo *</label>
-          <input type="text" id="rsvp-name" name="Nombre completo" required class="w-full bg-transparent border-0 border-b border-ink/25 focus:border-gold py-3 text-ink placeholder:text-ink/30 transition-colors" placeholder="Tu nombre y apellidos">
+          <label for="rsvp-name" class="block text-xs tracking-wide-lg uppercase text-iron/70 mb-2">Nombre completo *</label>
+          <input type="text" id="rsvp-name" name="Nombre completo" required class="w-full bg-transparent border-0 border-b border-iron/25 focus:border-terracotta py-3 text-iron placeholder:text-iron/65 transition-colors" placeholder="Tu nombre y apellidos">
           <p class="error-msg hidden text-xs text-red-700 mt-1">Por favor, escribe tu nombre completo.</p>
         </div>
 
         <fieldset>
-          <legend class="block text-xs tracking-wide-lg uppercase text-ink/70 mb-3">¿Asistirás? *</legend>
+          <legend class="block text-xs tracking-wide-lg uppercase text-iron/70 mb-3">¿Asistirás? *</legend>
           <div class="flex gap-4">
             <label class="flex-1 cursor-pointer">
               <input type="radio" name="Asistencia" value="Sí, asistiré" required class="peer sr-only">
-              <span class="block text-center py-3 border border-ink/25 rounded-sm peer-checked:bg-bottle peer-checked:text-ivory peer-checked:border-bottle transition-colors">Sí, asistiré</span>
+              <span class="block text-center py-3 border border-iron/25 rounded-sm peer-checked:bg-iron peer-checked:text-plaster peer-checked:border-iron transition-colors">Sí, asistiré</span>
             </label>
             <label class="flex-1 cursor-pointer">
               <input type="radio" name="Asistencia" value="No podré asistir" required class="peer sr-only">
-              <span class="block text-center py-3 border border-ink/25 rounded-sm peer-checked:bg-bottle peer-checked:text-ivory peer-checked:border-bottle transition-colors">No podré asistir</span>
+              <span class="block text-center py-3 border border-iron/25 rounded-sm peer-checked:bg-iron peer-checked:text-plaster peer-checked:border-iron transition-colors">No podré asistir</span>
             </label>
           </div>
           <p class="error-msg hidden text-xs text-red-700 mt-1">Indícanos si podrás asistir.</p>
         </fieldset>
 
         <div>
-          <label for="rsvp-guests" class="block text-xs tracking-wide-lg uppercase text-ink/70 mb-2">Número de acompañantes</label>
-          <select id="rsvp-guests" name="Acompañantes" class="w-full bg-transparent border-0 border-b border-ink/25 focus:border-gold py-3 text-ink transition-colors">
+          <label for="rsvp-guests" class="block text-xs tracking-wide-lg uppercase text-iron/70 mb-2">Número de acompañantes</label>
+          <select id="rsvp-guests" name="Acompañantes" class="w-full bg-transparent border-0 border-b border-iron/25 focus:border-terracotta py-3 text-iron transition-colors">
             <option value="0">Solo yo</option>
             <option value="1">1 acompañante</option>
             <option value="2">2 acompañantes</option>
@@ -514,151 +577,151 @@ tailwind.config = {
         </div>
 
         <div>
-          <label for="rsvp-allergies" class="block text-xs tracking-wide-lg uppercase text-ink/70 mb-2">Restricciones alimentarias o alergias</label>
-          <input type="text" id="rsvp-allergies" name="Alergias" class="w-full bg-transparent border-0 border-b border-ink/25 focus:border-gold py-3 text-ink placeholder:text-ink/30 transition-colors" placeholder="Celiaquía, vegetariano, alergias...">
+          <label for="rsvp-allergies" class="block text-xs tracking-wide-lg uppercase text-iron/70 mb-2">Restricciones alimentarias o alergias</label>
+          <input type="text" id="rsvp-allergies" name="Alergias" class="w-full bg-transparent border-0 border-b border-iron/25 focus:border-terracotta py-3 text-iron placeholder:text-iron/65 transition-colors" placeholder="Celiaquía, vegetariano, alergias...">
         </div>
 
         <div>
-          <label for="rsvp-song" class="block text-xs tracking-wide-lg uppercase text-ink/70 mb-2">Una canción que no puede faltar</label>
-          <input type="text" id="rsvp-song" name="Canción" class="w-full bg-transparent border-0 border-b border-ink/25 focus:border-gold py-3 text-ink placeholder:text-ink/30 transition-colors" placeholder="Título y artista">
+          <label for="rsvp-song" class="block text-xs tracking-wide-lg uppercase text-iron/70 mb-2">Una canción que no puede faltar</label>
+          <input type="text" id="rsvp-song" name="Canción" class="w-full bg-transparent border-0 border-b border-iron/25 focus:border-terracotta py-3 text-iron placeholder:text-iron/65 transition-colors" placeholder="Título y artista">
         </div>
 
         <div>
-          <label for="rsvp-message" class="block text-xs tracking-wide-lg uppercase text-ink/70 mb-2">Mensaje para los novios</label>
-          <textarea id="rsvp-message" name="Mensaje" rows="4" class="w-full bg-transparent border-0 border-b border-ink/25 focus:border-gold py-3 text-ink placeholder:text-ink/30 transition-colors resize-none" placeholder="Escribe unas palabras..."></textarea>
+          <label for="rsvp-message" class="block text-xs tracking-wide-lg uppercase text-iron/70 mb-2">Mensaje para los novios</label>
+          <textarea id="rsvp-message" name="Mensaje" rows="4" class="w-full bg-transparent border-0 border-b border-iron/25 focus:border-terracotta py-3 text-iron placeholder:text-iron/65 transition-colors resize-none" placeholder="Escribe unas palabras..."></textarea>
         </div>
 
-        <button type="submit" id="rsvp-submit" class="btn-gold w-full bg-gold text-ink text-sm tracking-wide-lg uppercase py-4 rounded-sm mt-4">Enviar confirmación</button>
+        <button type="submit" id="rsvp-submit" class="btn-iron w-full bg-terracotta-deep text-plaster text-sm tracking-wide-lg uppercase py-5 mt-4">Enviar confirmación</button>
       </form>
 
       <!-- Success state -->
       <div id="rsvp-success" class="hidden text-center py-16">
-        <svg class="w-14 h-14 text-gold-deep mx-auto mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,200a96,96,0,1,1,96-96A96.11,96.11,0,0,1,128,224Zm52.24-140.24a6,6,0,0,1,0,8.48l-64,64a6,6,0,0,1-8.48,0l-32-32a6,6,0,1,1,8.48-8.48L112,143.51l59.76-59.75A6,6,0,0,1,180.24,83.76Z"/></svg>
-        <h3 class="font-display text-3xl text-bottle mb-3">Gracias por confirmar</h3>
-        <p class="text-ink/70 max-w-prose mx-auto">Hemos recibido tu respuesta. Elena y Marcos están deseando celebrar este día junto a ti.</p>
+        <svg class="w-14 h-14 text-terracotta-deep mx-auto mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,200a96,96,0,1,1,96-96A96.11,96.11,0,0,1,128,224Zm52.24-140.24a6,6,0,0,1,0,8.48l-64,64a6,6,0,0,1-8.48,0l-32-32a6,6,0,1,1,8.48-8.48L112,143.51l59.76-59.75A6,6,0,0,1,180.24,83.76Z"/></svg>
+        <h3 class="font-display text-3xl text-iron mb-3">Gracias por confirmar</h3>
+        <p class="text-iron/70 max-w-prose mx-auto">Hemos recibido tu respuesta. Elena y Marcos están deseando celebrar este día junto a ti.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ FAQ ============ -->
-<section id="faq" class="py-24 md:py-36 px-5 md:px-10 bg-ivory-deep">
+<section id="faq" class="py-24 md:py-36 px-5 md:px-10 bg-plaster-deep">
   <div class="max-w-3xl mx-auto">
     <div class="reveal text-center mb-16">
-      <p class="text-gold-deep text-xs tracking-wide-xl uppercase mb-4">Preguntas frecuentes</p>
-      <h2 class="font-display text-4xl md:text-5xl text-bottle">FAQ</h2>
+      <h2 class="font-display text-4xl md:text-5xl text-iron">Preguntas frecuentes</h2>
+      <div class="grille-divider w-40 mx-auto mt-6"></div>
     </div>
 
-    <div class="reveal space-y-0 divide-y divide-ink/10 border-t border-b border-ink/10">
+    <div class="reveal space-y-0 divide-y divide-iron/10 border-t border-b border-iron/10">
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Puedo llevar niños?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Puedo llevar niños?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Por supuesto. Queremos que toda la familia disfrute del día. Habrá un espacio tranquilo habilitado para que los más pequeños puedan descansar durante la fiesta.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Por supuesto. Queremos que toda la familia disfrute del día. Habrá un espacio tranquilo habilitado para que los más pequeños puedan descansar durante la fiesta.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Hay menú para alergias o intolerancias?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Hay menú para alergias o intolerancias?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Sí. Indícanoslo en el formulario de confirmación y el equipo de cocina preparará una alternativa adaptada a tus necesidades.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Sí. Indícanoslo en el formulario de confirmación y el equipo de cocina preparará una alternativa adaptada a tus necesidades.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Cuál es el código de vestimenta?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Cuál es el código de vestimenta?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Formal / etiqueta. Puedes ver el detalle completo en la sección «Información para invitados» más arriba.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Formal / etiqueta. Puedes ver el detalle completo en la sección «Información para invitados» más arriba.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Dónde aparco?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Dónde aparco?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Recomendamos el Aparcamiento Cano y Cueto, a 4 minutos a pie de la capilla. Habrá indicaciones el día del evento para llegar también a la celebración.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Recomendamos el Aparcamiento Cano y Cueto, a 4 minutos a pie de la capilla. Habrá indicaciones el día del evento para llegar también a la celebración.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Qué pasa si llueve?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Qué pasa si llueve?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Tanto la capilla como el palacio cuentan con espacios cubiertos, así que la celebración está garantizada llueva o haga sol.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Tanto la capilla como el palacio cuentan con espacios cubiertos, así que la celebración está garantizada llueva o haga sol.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Hasta qué hora dura la fiesta?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Hasta qué hora dura la fiesta?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">La fiesta continuará hasta pasada la medianoche. Habrá servicio de taxis disponible para quien lo necesite.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">La fiesta continuará hasta pasada la medianoche. Habrá servicio de taxis disponible para quien lo necesite.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Puedo hacer fotos durante la ceremonia?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Puedo hacer fotos durante la ceremonia?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Preferimos una ceremonia «unplugged»: os pedimos guardar los móviles y cámaras durante la ceremonia para disfrutar del momento. Habrá fotógrafo profesional y compartiremos todas las imágenes después.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Preferimos una ceremonia «unplugged»: os pedimos guardar los móviles y cámaras durante la ceremonia para disfrutar del momento. Habrá fotógrafo profesional y compartiremos todas las imágenes después.</div></div>
       </div>
 
       <div class="faq-item" data-open="false">
         <button class="faq-trigger w-full flex items-center justify-between gap-4 py-6 text-left" aria-expanded="false">
-          <span class="font-display text-xl md:text-2xl text-bottle">¿Hay guardarropa?</span>
-          <svg class="faq-chevron w-5 h-5 text-gold-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
+          <span class="font-display text-xl md:text-2xl text-iron">¿Hay guardarropa?</span>
+          <svg class="faq-chevron w-5 h-5 text-terracotta-deep shrink-0" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></svg>
         </button>
-        <div class="faq-answer"><div class="pb-6 pr-10 text-ink/75 leading-relaxed">Sí, el Palacio de Villahermosa dispone de guardarropa gratuito para chaquetas, chales y abrigos durante toda la celebración.</div></div>
+        <div class="faq-answer"><div class="pb-6 pr-10 text-iron/75 leading-relaxed">Sí, el Palacio de Villahermosa dispone de guardarropa gratuito para chaquetas, chales y abrigos durante toda la celebración.</div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============ MÚSICA ============ -->
-<section id="musica" class="py-20 md:py-28 px-5 md:px-10 bg-ivory">
+<section id="musica" class="py-20 md:py-28 px-5 md:px-10 bg-plaster">
   <div class="reveal max-w-xl mx-auto text-center">
-    <svg class="w-9 h-9 text-gold-deep mx-auto mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M215.57,35.62a4,4,0,0,0-3.7-.62l-112,32A4,4,0,0,0,97,71v92.6A28,28,0,1,0,105,183a27.8,27.8,0,0,0-.09-2.16A4,4,0,0,0,105,180V96.63l104-29.71V139.6A28,28,0,1,0,217,159a27.8,27.8,0,0,0-.09-2.16A4,4,0,0,0,217,156V39A4,4,0,0,0,215.57,35.62ZM77,203a20,20,0,1,1,20-20A20,20,0,0,1,77,203ZM189,179a20,20,0,1,1,20-20A20,20,0,0,1,189,179Z"/></svg>
-    <h2 class="font-display text-3xl md:text-4xl text-bottle mb-4">Ponle banda sonora a la noche</h2>
-    <p class="text-ink/75 leading-relaxed mb-6">Añade tus canciones favoritas a nuestra playlist colaborativa y ayúdanos a construir la lista de baile de la fiesta.</p>
-    <a href="#" target="_blank" rel="noopener" class="link-underline inline-flex items-center gap-2 text-sm tracking-wide-lg uppercase text-gold-deep">Añadir canciones en Spotify</a>
+    <svg class="w-9 h-9 text-terracotta-deep mx-auto mb-6" viewBox="0 0 256 256" fill="currentColor"><path d="M215.57,35.62a4,4,0,0,0-3.7-.62l-112,32A4,4,0,0,0,97,71v92.6A28,28,0,1,0,105,183a27.8,27.8,0,0,0-.09-2.16A4,4,0,0,0,105,180V96.63l104-29.71V139.6A28,28,0,1,0,217,159a27.8,27.8,0,0,0-.09-2.16A4,4,0,0,0,217,156V39A4,4,0,0,0,215.57,35.62ZM77,203a20,20,0,1,1,20-20A20,20,0,0,1,77,203ZM189,179a20,20,0,1,1,20-20A20,20,0,0,1,189,179Z"/></svg>
+    <h2 class="font-display text-3xl md:text-4xl text-iron mb-4">Ponle banda sonora a la noche</h2>
+    <p class="text-iron/75 leading-relaxed mb-6">Añade tus canciones favoritas a nuestra playlist colaborativa y ayúdanos a construir la lista de baile de la fiesta.</p>
+    <a href="#" target="_blank" rel="noopener" class="link-underline inline-flex items-center gap-2 text-sm tracking-wide-lg uppercase text-terracotta-deep">Añadir canciones en Spotify</a>
   </div>
 </section>
 
 <!-- ============ CONTACTO ============ -->
-<section id="contacto" class="py-20 md:py-28 px-5 md:px-10 bg-ivory-deep">
+<section id="contacto" class="py-20 md:py-28 px-5 md:px-10 bg-plaster-deep">
   <div class="reveal max-w-xl mx-auto text-center">
-    <p class="text-gold-deep text-xs tracking-wide-xl uppercase mb-4">¿Dudas?</p>
-    <h2 class="font-display text-3xl md:text-4xl text-bottle mb-10">Contacto</h2>
+    <h2 class="font-display text-3xl md:text-4xl text-iron mb-3">Contacto</h2>
+    <div class="grille-divider w-32 mx-auto mb-10"></div>
     <div class="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 mb-10">
       <div class="flex items-center gap-3">
-        <svg class="w-5 h-5 text-gold-deep" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.63a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.89-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg>
+        <svg class="w-5 h-5 text-terracotta-deep" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.63a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.89-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg>
         <div class="text-left">
-          <p class="text-xs text-ink/70">Elena</p>
-          <a href="tel:+34600000000" class="text-ink hover:text-gold-deep transition-colors">+34 600 00 00 00</a>
+          <p class="text-xs text-iron/70">Elena</p>
+          <a href="tel:+34600000000" class="text-iron hover:text-terracotta-deep transition-colors">+34 600 00 00 00</a>
         </div>
       </div>
       <div class="flex items-center gap-3">
-        <svg class="w-5 h-5 text-gold-deep" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.63a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.89-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg>
+        <svg class="w-5 h-5 text-terracotta-deep" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.63a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.89-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg>
         <div class="text-left">
-          <p class="text-xs text-ink/70">Marcos</p>
-          <a href="tel:+34600000001" class="text-ink hover:text-gold-deep transition-colors">+34 600 00 00 01</a>
+          <p class="text-xs text-iron/70">Marcos</p>
+          <a href="tel:+34600000001" class="text-iron hover:text-terracotta-deep transition-colors">+34 600 00 00 01</a>
         </div>
       </div>
     </div>
-    <p class="font-display italic text-2xl text-gold-deep">#ElenaYMarcos2027</p>
+    <p class="font-display italic text-2xl text-terracotta-deep">#ElenaYMarcos2027</p>
   </div>
 </section>
 
 <!-- ============ FOOTER ============ -->
-<footer class="bg-bottle text-ivory py-16 px-5 md:px-10">
+<footer class="bg-iron text-plaster py-16 px-5 md:px-10">
   <div class="max-w-6xl mx-auto text-center">
     <p class="font-display text-3xl tracking-wide-lg mb-4">E&nbsp;&amp;&nbsp;M</p>
-    <p class="font-display italic text-ivory/80 text-lg mb-8">Gracias por ser parte de nuestra historia</p>
+    <p class="font-display italic text-plaster/80 text-lg mb-8">Gracias por ser parte de nuestra historia</p>
 
-    <nav class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs tracking-wide-lg uppercase text-ivory/70 mb-10">
+    <nav class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs tracking-wide-lg uppercase text-plaster/70 mb-10">
       <a href="#inicio" class="link-underline">Inicio</a>
       <a href="#historia" class="link-underline">Nuestra historia</a>
       <a href="#boda" class="link-underline">La boda</a>
@@ -667,8 +730,8 @@ tailwind.config = {
       <a href="#faq" class="link-underline">FAQ</a>
     </nav>
 
-    <div class="w-12 h-px bg-ivory/20 mx-auto mb-6"></div>
-    <p class="text-[11px] tracking-wide text-ivory/60">Diseño y desarrollo — NGS</p>
+    <div class="w-12 h-px bg-plaster/20 mx-auto mb-6"></div>
+    <p class="text-[11px] tracking-wide text-plaster/60">Diseño y desarrollo — NGS</p>
   </div>
 </footer>
 
@@ -772,8 +835,8 @@ tailwind.config = {
   var galleryImages = [
     { src: 'img/gallery-1.jpg', alt: 'Ramo de rosas y eucalipto sobre fondo neutro' },
     { src: 'img/gallery-2.jpg', alt: 'Anillos de plata entrelazados junto a pétalos de rosa' },
-    { src: 'img/gallery-3.jpg', alt: 'Mesa decorada con velas y flores secas en tonos cálidos' },
-    { src: 'img/gallery-4.jpg', alt: 'Templete clásico decorado con flores para la ceremonia' },
+    { src: 'img/terracotta-detail.jpg', alt: 'Maceta de barro con geranio rojo sobre un muro encalado' },
+    { src: 'img/rejeria-1.jpg', alt: 'Reja de hierro forjado sevillana con motivos florales sobre un muro de cal' },
     { src: 'img/gallery-5.jpg', alt: 'Detalle arquitectónico de un arco de estilo andalusí' },
     { src: 'img/gallery-6.jpg', alt: 'Patio andaluz con arcadas de piedra y plantas' },
     { src: 'img/gallery-7.jpg', alt: 'Copas de champán brindando con luz cálida de fondo' },
