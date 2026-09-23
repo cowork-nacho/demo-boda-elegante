@@ -98,12 +98,13 @@ tailwind.config = {
 
 
   /* Hardcoded (not Tailwind-JIT-dependent) so the hero is always full-height on first paint, before the CDN script compiles utility classes.
-     min-height uses the LARGEST possible mobile viewport (100vh, and 100lvh where supported) rather than svh/dvh, which track the
-     *current* browser-chrome state. On Android Chrome the URL bar auto-hides as you scroll, growing the real viewport live; if the hero
-     were sized to the shorter (chrome-visible) height, that growth reveals a gap/sliver of the next section underneath it. Sizing to the
-     largest possible viewport up front means there's never less hero than what ends up visible, whichever way the chrome resolves. */
+     min-height uses the DYNAMIC viewport (100dvh) so it always matches whatever height is actually visible
+     right now — chrome shown or hidden — instead of pinning to the largest possible viewport (100lvh), which
+     overshoots the visible screen while the browser chrome (URL bar/nav) is on-screen and forces a scroll to
+     see the rest of the hero. Because min-height only ever grows the section, not shrinks it below content,
+     dvh growing as the chrome auto-hides on scroll never reveals a gap either — it solves both directions. */
   #inicio { position: relative; min-height: 100vh; width: 100%; overflow: hidden; }
-  @supports (height: 100lvh) { #inicio { min-height: 100lvh; } }
+  @supports (height: 100dvh) { #inicio { min-height: 100dvh; } }
   #inicio img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
   /* Directional scrim concentrated behind the text column (radial, centered) plus a floor/ceiling read
