@@ -98,13 +98,14 @@ tailwind.config = {
 
 
   /* Hardcoded (not Tailwind-JIT-dependent) so the hero is always full-height on first paint, before the CDN script compiles utility classes.
-     min-height uses the DYNAMIC viewport (100dvh) so it always matches whatever height is actually visible
-     right now — chrome shown or hidden — instead of pinning to the largest possible viewport (100lvh), which
-     overshoots the visible screen while the browser chrome (URL bar/nav) is on-screen and forces a scroll to
-     see the rest of the hero. Because min-height only ever grows the section, not shrinks it below content,
-     dvh growing as the chrome auto-hides on scroll never reveals a gap either — it solves both directions. */
+     min-height uses the SMALL viewport (100svh) — a fixed value that does not recompute while the browser
+     chrome (URL bar/nav) animates open or closed. dvh looked more precise on paper (it tracks whatever is
+     visible right now) but recomputing live on every chrome-animation frame fights the user's own scroll
+     gesture on Chrome Android: the layout reflows mid-scroll, which reads as the page catching and releasing.
+     svh trades a few px of slack under the fold while the chrome is hidden for scroll that never stutters —
+     the same approach the sibling demos (demo-boda-boho, demo-boda-moderna) already use. */
   #inicio { position: relative; min-height: 100vh; width: 100%; overflow: hidden; }
-  @supports (height: 100dvh) { #inicio { min-height: 100dvh; } }
+  @supports (height: 100svh) { #inicio { min-height: 100svh; } }
   #inicio img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
   /* Directional scrim concentrated behind the text column (radial, centered) plus a floor/ceiling read
